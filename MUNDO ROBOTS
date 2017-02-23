@@ -1,0 +1,518 @@
+Robots DESTROYER;
+Robots OMNIDRO;
+Robots ROBOCO;
+Robots DROIDEBOCK;
+Robots GALATICK;
+Robots robt1;
+Robots robt2;
+int Mundo=0;
+PFont font;
+int turno=0;
+int triunfador=0;
+int puntos1=0;
+int puntos2=0;
+int robot1;
+int robot2;
+  
+void setup(){
+  size(900,800);
+  background(0);
+  font = createFont("FascinateInline-Regular.ttf", 80);
+ DESTROYER = new Robots("DESTROYER;",210,7,8,12,4);
+ OMNIDRO = new Robots("OMNIDRO",210,7,9,14,3);
+ ROBOCO = new Robots("ROBOCO",210,7,9,15,2);
+ DROIDEBOCK= new Robots("DROIDEBOCK",210,7,9,13,1);
+ GALATICK = new Robots("GALATIX",210,8,9,12,0);
+
+}
+void draw(){
+ switch(Mundo){
+    case 0:
+    Inicio();
+    break;
+    
+    case 1:
+    Seleccion1();
+    break;
+    
+    case 2:
+    Seleccion2();
+    break;
+    
+    case 3: 
+    Pelea();
+    break;
+    
+    case 4:
+    resultado();
+    break;
+ }
+}
+class Robots{
+  
+  String nombre;
+  int vida;
+  int ataque;
+  int resistencia;
+  int especial;
+  int robot;
+  
+  Robots(String nombre_,int vida_,int ataque_,int resistencia_,int especial_, int robot_)
+  {
+    nombre = nombre_;
+    vida = vida_;
+    ataque = ataque_;
+    resistencia =resistencia_;
+    especial = especial_;
+    robot = robot_;
+  }
+  
+  void dibujar(){
+    switch (robot){
+      case 0:
+      
+    //Destroyer
+ noStroke();
+  fill(#FF2B24);//rojo
+rect (125,200,50,25);
+rect (125,225,25,75);
+rect (300,200,50,25);
+rect (215,150,50,25);
+rect (325,225,25,75);
+rect (200,300,75,50);
+rect(175,375,25,75);
+rect(275,375,25,75);
+
+
+fill(#17FF3B);//verde
+rect (175,175,125,125);
+rect(175,350,125,25);
+ellipse(240,133,50,35);
+
+fill(#FF2B24);//rojo
+ellipse(240,130,10,15);
+  break;
+  
+  case 1:
+//ROBTO2
+   fill(#AEADAF);//gris
+rect (125,200,50,25);
+rect (220,150,40,75);
+rect (325,225,25,75);
+rect(125,375,225,25);
+rect (260,400,25,50);
+rect(190,400,25,50);
+
+
+fill(#2C08A5);//azul
+rect (300,200,50,25);
+rect (125,125,25,75);
+rect (200,300,75,50);
+rect(325,350,25,100);
+rect(125,350,25,100);
+rect (175,175,125,175);
+rect(175,350,125,25);
+ 
+fill(#FDFCFF);
+rect (200,225,25,50);
+rect (225,300,25,50);
+  break;
+  
+  case 2:
+  //ROBOT3
+    fill(#FFF300);//amarillo
+rect (125,200,50,25);
+rect (220,150,40,75);
+rect (325,225,25,75);
+rect (350,225,25,25);
+rect (230,425,25,25);
+rect(125,375,225,25);
+rect (230,400,25,25);
+
+fill(#FF742E);//naranja
+rect (300,200,50,25);
+rect (125,125,25,75);
+rect (200,300,75,50);
+rect(350,400,25,25);
+rect(375,425,25,25);
+rect(100,400,25,25);
+rect(75,425,25,25);
+rect (175,175,125,150);
+rect(175,350,125,25);
+ 
+fill(#FDFCFF);
+rect (200,225,25,50);
+rect (250,225,25,50);
+  break;
+  
+  case 3:
+  //ROBOT4
+     fill(#6912B7);//morado
+rect (125,200,50,25);
+rect (220,150,40,75);
+rect (220,125,20,40);
+rect (325,225,25,75);
+rect (350,225,25,25);
+rect (283,425,25,25);
+rect(125,375,225,25);
+rect (260,400,25,25);
+rect(190,400,25,25);
+rect(170,425,25,25);
+
+
+fill(#E50296);//rosa
+rect (300,200,50,25);
+rect (125,125,25,75);
+rect (200,300,75,50);
+rect(350,400,25,25);
+rect(375,425,25,25);
+rect(100,400,25,25);
+rect(75,425,25,25);
+rect (175,175,125,175);
+rect(175,350,125,25);
+ 
+fill(#FDFCFF);
+rect (200,225,25,50);
+rect (250,225,25,50);
+  break;
+  
+  case 4:
+  
+  break;
+    }
+  }
+  void  dibujar1(){
+  switch (robot){
+    case 4:
+    noStroke();
+    
+    //ROBOT5
+    fill(#795A16);//cafe
+rect (125,200,50,25);
+rect (220,150,40,75);
+rect (325,225,25,75);
+rect (350,225,25,25);
+
+fill(#D3991A);//naranja
+rect (300,200,50,25);
+rect (125,125,25,75);
+rect (200,300,75,50);
+rect (175,175,125,150);
+rect(175,350,125,25);
+ 
+fill(#FDFCFF);
+rect (200,225,25,50);
+rect (250,225,25,50);
+  break;
+  }
+ }
+}
+  
+void Inicio(){
+font = createFont("FascinateInline-Regular.ttf", 80);
+  background(0);
+  fill(#FFFFFF);
+  textFont(font);
+  text("MUNDO DE ROBOTS", 55,400);
+  textSize(20);
+  text("SIGUIENTE",400,650);
+  if (mousePressed){
+  Mundo=1;
+  }
+}
+void Seleccion1(){
+ background (0);
+    noStroke();
+    fill(#FFFCFC);
+    textSize(50);
+    text("SELECIONA TU ROBOTS",170,100);
+    fill(#D10202);
+    text("DESTROYER",45,300);
+    fill(#060CB7);
+    text("OMNIDRO",380,300);
+    fill(#E2FF0D);
+    text("ROBOCO",670,300);
+    fill(#AD11AA);
+    text("DOIDEBOCK",100,500);
+    fill(#A56D23);
+    text("GALATICK",530,500);
+
+  
+  if (keyPressed){
+    if(key == '0'){
+      robt1 = DESTROYER;
+      robot1 = 0;
+      Mundo=2;
+    }
+    else if (key == '1'){
+    robt1 = OMNIDRO;
+    robot1 = 1;
+    Mundo=2;
+    }
+    else if (key == '2'){
+    robt1 = ROBOCO;
+    robot1 = 2;
+    Mundo=2;
+    }
+    else if (key == '3'){
+    robt1 = DROIDEBOCK;
+    robot1 = 3;
+    Mundo=2;
+    }
+    else if (key == '4'){
+    robt1 = GALATICK;
+    robot1 = 4;
+    Mundo=2;
+    }
+  }
+}
+void Seleccion2(){
+background (0);
+    fill(#0FFC00);
+    textSize(50);
+    text("SELECIONA TU ROBOTS",170,100);
+    fill(#FC0033);
+    text("DESTROYER",45,300);
+    fill(#A24D5E);
+    text("OMNIDRO",380,300);
+    fill(#1805FC);
+    text("ROBOCO",670,300);
+    fill(#FCCC05);
+    text("DOIDEBOCK",100,500);
+    fill(#FC2A05);
+    text("GALATICK",530,500);
+
+    
+    if (keyPressed){
+    if(key == '5'){
+      robt2 = DESTROYER;
+      robot2 = 0;
+      Mundo=3;
+    }
+    else if (key == '6'){
+    robt2 = OMNIDRO;
+    robot2 = 1;
+    Mundo=3;
+    }
+    else if (key == '7'){
+    robt2 = ROBOCO;
+    robot2 = 2;
+    Mundo=3;
+    }
+    else if (key == '8'){
+    robt2 = DROIDEBOCK;
+    robot2 = 3;
+    Mundo=3;
+    }
+    else if (key == '9'){
+    robt2 = GALATICK;
+    robot2 = 4;
+    Mundo=3;
+    }
+  }
+}
+   void Pelea(){ 
+   background(0);
+   
+   if(robot1 == 0){
+    pushMatrix();
+    translate(50,100);
+    DESTROYER.dibujar();  
+    popMatrix();
+  }
+  
+   else if(robot1 == 1){
+    pushMatrix();
+    translate(50,100);
+    OMNIDRO.dibujar();  
+    popMatrix();
+  }
+  else if(robot1 == 2){
+    pushMatrix();
+    translate(50,100);
+    ROBOCO.dibujar();  
+    popMatrix();
+  }
+  else if(robot1 == 3){
+    pushMatrix();
+    translate(50,100);
+    DROIDEBOCK.dibujar();  
+    popMatrix();
+  }
+  
+  else if(robot1 == 4){
+    pushMatrix();
+    translate(50,100);
+    GALATICK.dibujar1();  
+    popMatrix();
+  }
+  if(robot2 == 0){
+    pushMatrix();
+    translate(400,100);
+    DESTROYER.dibujar();  
+    popMatrix();
+  }
+  
+   else if(robot2 == 1){
+    pushMatrix();
+    translate(400,100);
+    OMNIDRO.dibujar();  
+    popMatrix();
+  }
+  else if(robot2 == 2){
+    pushMatrix();
+    translate(400,100);
+    ROBOCO.dibujar();  
+    popMatrix();
+  }
+  else if(robot2 == 3){
+    pushMatrix();
+    translate(400,100);
+    DROIDEBOCK.dibujar();  
+    popMatrix();
+  }
+  
+  else if(robot2 == 4){
+    pushMatrix();
+   translate(400,100);
+    GALATICK.dibujar1();  
+    popMatrix();
+  }
+    if (turno ==0){
+    if(keyPressed){
+      if(key == 'a'){
+      robt1 . vida = robt2.vida - robt1 .ataque;
+      turno = 1;
+      puntos1++;
+      }
+      else if(key == 'w'){
+      robt2.vida= robt2.vida - robt1 .resistencia;
+      turno = 1;
+      puntos1++;
+      }
+      if(robt2.vida <= 0){
+      Mundo = 4;
+      }
+    }
+    }
+
+  
+if(turno == 1){
+    if(keyPressed){
+      if(key == 's'){
+      robt1.vida = robt1.vida - robt2.ataque;
+      turno= 0 ;
+      puntos2++;
+      }
+      else if(key == 'o'){
+      robt1.vida= robt1.vida- robt2.resistencia;
+      turno = 0;
+      puntos2++;
+      }
+      if(robt1.vida <= 0){
+      Mundo= 4;
+      }
+    }
+}
+if(puntos1 == 4){
+    fill(#ff0000);
+    text("ESPECIAL",300,100);
+    if(keyPressed){
+      if(key == '4'){
+      robt2.vida = robt2.vida - robt1.especial;
+      turno = 1;
+     puntos1 = 0;
+      }
+      if(robt2.vida <= 0){
+      Mundo = 4;
+   }
+ }
+}
+if(puntos2 == 4){
+    fill(#ECFF1F);
+    text("ESPECIAL",810,100);
+    if(keyPressed){
+      if(key == 'm'){
+      robt1.vida = robt1.vida - robt2.especial;
+      turno = 0;
+      puntos2 = 0;
+      }
+      if(robt1.vida <= 0){
+      Mundo = 4;
+   }
+ }
+}
+
+  if(turno == 0){
+    fill(255);
+    text("TU TURNO",10,100);
+    }
+    else {
+    fill(255);
+    text("Mi TURNO",770,100);
+    }
+    
+    if(turno == 0){
+    fill(#4682B4);  
+    }
+    else{
+   fill(#25BDC9);
+    }
+    
+    rect(0,10,250,40);
+    
+    if(turno == 1){
+    
+    }
+    else{
+    fill(#2150C1);
+    }
+    
+    rect(675,10,250,40);
+    fill(255);
+    textSize(20);
+    text(robt1.nombre,10,30);
+    text(robt2.nombre,760,30);
+    if(robt1.vida >= 0 && robt1.vida <= 20){
+    fill(#ff0000);
+    }
+    else if(robt1.vida > 20 && robt1.vida <= 60){
+    fill(#F1FC7A);
+    }
+    else{
+    fill(#0FFC00);
+    }
+    rect(10,50,robt1.vida*2,5);
+    
+    if(robt2.vida >= 0 && robt2.vida <= 30){
+    fill(#ff0000);
+    }
+    else if(robt2.vida > 20 && robt2.vida <= 30){
+    fill(#F1FC7A);
+    }
+    else{
+    fill(#00ff00);
+    }
+    rect(490,50,robt2.vida*2,5);
+}
+
+
+void resultado(){
+background(0);
+
+fill(#D8D8D8);
+textSize(80);
+text("El TRIUNFADOR ",50,200);
+text("ES..",50,300);
+
+if(robt1.vida > 0){
+textSize(100);
+text(robt1.nombre,100,500);
+
+}
+else {
+  textSize(100);
+  text(robt2.nombre,100,500);
+
+ }
+}
